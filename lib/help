@@ -1,0 +1,13 @@
+#!/bin/bash
+
+run_help() {
+cat <<EOT
+Dotfiles - Chris Milson - https://shlappas.com
+
+Usage: $(basename "$0") [--help] <command>
+
+These are dotfiles commands:
+    update      Updates the dotfiles to the latest version
+    remove      Removes the dotfiles
+EOT
+}

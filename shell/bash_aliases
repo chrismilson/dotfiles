@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# bash aliases
+
+# Allow aliases to be with sudo
+alias sudo="sudo "
+
+# Easier navigation: .., ..., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+alias -- -="cd -"
+
+# Easier directory creation
+alias mkd="mkdir $1 && cd $1"
+
+# IP addresses
+# My public ip
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
