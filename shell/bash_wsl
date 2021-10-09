@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# bash on wsl specific commands
+
+if ! command -v "wsl.exe" &> /dev/null; then
+    # not running on wsl
+    return
+fi
+
+# mimic pbcopy
+pbcopy() {
+    tee <&0 | clip.exe
+}
+
+# mimic pbpaste
+pbpaste() {
+    powershell.exe Get-Clipboard | sed 's/\r$//' | sed -z '$ s/\n$//'
+}
