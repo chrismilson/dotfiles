@@ -53,23 +53,13 @@ if ! is_git_repo; then
 fi
 
 mirrorfiles() {
-    # Copy `.gitconfig`.
-    # Any global git commands in `~/.bash_profile.local` will be written to
-    # `.gitconfig`. This prevents them being committed to the repository.
-    rsync -avz --quiet ${DOTFILES_DIRECTORY}/git/gitconfig  ${HOME}/.gitconfig
-
-    # Force remove the vim directory if it's already there.
-    if [ -e "${HOME}/.vim" ]; then
-        rm -rf "${HOME}/.vim"
-    fi
-
     # Create the necessary symbolic links between the `.dotfiles` and `HOME`
     # directory. The `bash_profile` sources other files directly from the
     # `.dotfiles` repository.
-    link "shell/bashrc"       ".bashrc"
-    link "shell/bash_profile" ".bash_profile"
-    link "shell/curlrc"       ".curlrc"
-    link "shell/inputrc"      ".inputrc"
+    link "shell/bashrc"       "${HOME}/.bashrc"
+    link "shell/bash_profile" "${HOME}/.bash_profile"
+    link "shell/curlrc"       "${HOME}/.curlrc"
+    link "shell/inputrc"      "${HOME}/.inputrc"
 
     e_success "Dotfiles update complete!"
 }
