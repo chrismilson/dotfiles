@@ -13,8 +13,11 @@ alias .....="cd ../../../.."
 alias ~="cd ~"
 alias -- -="cd -"
 
-# Easier directory creation
-alias mkd="mkdir $1 && cd $1"
+# Even easier navigation with some common destinations
+alias p="cd ~/projects"
+
+# Trim newlines then copy to clipboard
+alias c="tr -d '\n' | pbcopy"
 
 # IP addresses
 # My public ip
@@ -33,3 +36,8 @@ alias egrep='egrep --color=auto'
 # An "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
