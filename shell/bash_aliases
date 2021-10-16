@@ -44,3 +44,7 @@ alias map="xargs -n1"
 
 # Use python3
 alias python="python3"
+
+# Case change aliases
+alias toupper="tr [:lower:] [:upper:]"
+alias tolower="tr [:upper:] [:lower:]"
