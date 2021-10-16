@@ -53,6 +53,12 @@ if ! is_git_repo; then
 fi
 
 mirrorfiles() {
+    # Copy `.gitconfig` 
+    # Any global git commands (in `~/.bash_profile.local` for example) will be 
+    # written to `~/.gitonfig`. This prevents them from being committed to the
+    # repository.
+    rsync -avz --quiet ${DOTFILES_DIRECTORY}/git/gitconfig ${HOME}/.gitconfig
+
     # Create the necessary symbolic links between the `.dotfiles` and `HOME`
     # directory. The `bash_profile` sources other files directly from the
     # `.dotfiles` repository.
@@ -60,6 +66,7 @@ mirrorfiles() {
     link "shell/bash_profile" "${HOME}/.bash_profile"
     link "shell/curlrc"       "${HOME}/.curlrc"
     link "shell/inputrc"      "${HOME}/.inputrc"
+    link "git/gitignore"      "${HOME}/.gitignore"
 
     e_success "Dotfiles update complete!"
 }
