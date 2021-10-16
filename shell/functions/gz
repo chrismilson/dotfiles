@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Compare original and gzipped file size
+
+gz() {
+    local original=$(wc -c < "$1")
+    local zipped=$(gzip -c "$1" | wc -c)
+    local ratio=$(echo "$zipped * 100 / $original" | bc -l)
+
+    printf "orig: %d bytes\n" "$original"
+    printf "gzip: %d bytes (%2.2f%%)\n" "$zipped" "$ratio"
+}
