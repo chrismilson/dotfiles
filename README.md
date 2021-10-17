@@ -18,10 +18,6 @@ To update the files, just run the dotfiles update command
 dotfiles update
 ```
 
-## Features
-
-None yet!
-
 ## Thanks to...
 
 - Mathias Bynens and [his dotfiles](https://github.com/mathiasbynens/dotfiles).
