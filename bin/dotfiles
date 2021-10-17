@@ -14,7 +14,7 @@ if [[ ! -d ${DOTFILES_DIRECTORY} ]]; then
     curl -fsSLo ${HOME}/dotfiles.tar.gz ${DOTFILES_TARBALL_PATH}
 
     # Extract to the dotfiles directory
-    tar -zxf ${HOME}/dotfiles.tar.gz --strip-components 1 -C ${DOTFILES_DIRECTORY}
+    tar -xzf ${HOME}/dotfiles.tar.gz --strip-components 1 -C ${DOTFILES_DIRECTORY}
 
     # Remove the tarball
     rm -rf ${HOME}/dotfiles.tar.gz
