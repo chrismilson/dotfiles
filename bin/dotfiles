@@ -52,7 +52,25 @@ if ! is_git_repo; then
     git clean -fd
 fi
 
-mirrorfiles() {
+# A list of files and their destinations
+declare -A target
+
+# The default target is "~/.<basename>"
+declare default_target=(
+    "shell/bashrc"
+    "shell/bash_profile"
+    "shell/curlrc"
+    "shell/inputrc"
+    "git/gitignore"
+)
+
+for index in "${!default_target[@]}"; do
+    # Map each file to the default target
+    file="${default_target[$index]}"
+    target[$file]="${HOME}/.$(basename \"$file\")"
+done
+
+install() {
     # Copy `.gitconfig` 
     # Any global git commands (in `~/.bash_profile.local` for example) will be 
     # written to `~/.gitonfig`. This prevents them from being committed to the
@@ -62,11 +80,9 @@ mirrorfiles() {
     # Create the necessary symbolic links between the `.dotfiles` and `HOME`
     # directory. The `bash_profile` sources other files directly from the
     # `.dotfiles` repository.
-    link "shell/bashrc"       "${HOME}/.bashrc"
-    link "shell/bash_profile" "${HOME}/.bash_profile"
-    link "shell/curlrc"       "${HOME}/.curlrc"
-    link "shell/inputrc"      "${HOME}/.inputrc"
-    link "git/gitignore"      "${HOME}/.gitignore"
+    for file in "${!target[@]}"; do
+        ln -f $file $target[$file]
+    done
 
     e_success "Dotfiles update complete!"
 }
