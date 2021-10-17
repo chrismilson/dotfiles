@@ -67,7 +67,7 @@ declare default_target=(
 for index in "${!default_target[@]}"; do
     # Map each file to the default target
     file="${default_target[$index]}"
-    target[$file]="${HOME}/.$(basename \"$file\")"
+    target["${file}"]="${HOME}/.$(basename ${file})"
 done
 
 install() {
@@ -81,19 +81,75 @@ install() {
     # directory. The `bash_profile` sources other files directly from the
     # `.dotfiles` repository.
     for file in "${!target[@]}"; do
-        ln -f $file $target[$file]
+        ln -f "${file}" "${target[$file]}"
     done
 
     e_success "Dotfiles update complete!"
 }
 
-# Ask before potentially overwriting files
-seek_confirmation "Warning: This step may overwrite your existing dotfiles."
+update() {
+    # pull the remote
+    git fetch origin master
 
-if is_confirmed; then
-    mirrorfiles
-    source ${HOME}/.bash_profile
-else
-    printf "Aborting...\n"
-    exit 1
+    # Reset the index and working tree to the fetched HEAD
+    git reset --hard FETCH_HEAD
+
+    # Remove any untracked files
+    git clean -fd
+
+    # install the new files
+    install
+}
+
+uninstall() {
+    # Remove `.gitconfig`
+    rm ${HOME}/.gitconfig
+
+    for file in "${!target[@]}"; do
+        rm "${target[$file]}"
+    done
+
+    e_success "Successfully removed dotfiles"
+}
+
+if [[ $# == 0 || "$1" == "install" ]]; then
+    # Ask before potentially overwriting files
+    seek_confirmation "Warning: This step may overwrite your existing dotfiles."
+
+    if ! is_confirmed; then
+        printf "Aborting...\n"
+        exit 1
+    fi
+
+    install
+    exit
 fi
+
+if [[ "$1" == "update" ]]; then
+    # Ask before potentially overwriting files
+    seek_confirmation "Warning: This step may overwrite your existing dotfiles."
+
+    if ! is_confirmed; then
+        printf "Aborting...\n"
+        exit 1
+    fi
+
+    update
+    exit
+fi
+
+if [[ "$1" == "remove" ]]; then
+    # Ask before removing files
+    seek_confirmation "Warning: This step will remove your existing dotfiles."
+
+    if !is_confirmed; then
+        printf "Aborting...\n"
+        exit 1
+    fi
+
+    uninstall
+    exit
+fi
+
+# Some incorrect way of calling `dotfiles`
+run_help
