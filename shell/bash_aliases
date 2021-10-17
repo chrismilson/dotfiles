@@ -21,7 +21,8 @@ alias c="tr -d '\n' | pbcopy"
 
 # IP addresses
 # My public ip
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip4="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
+alias ip6="dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 
 # LS Aliases
 alias ll='ls -alF'
