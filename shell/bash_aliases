@@ -19,10 +19,13 @@ alias p="cd ~/projects"
 # Trim newlines then copy to clipboard
 alias c="tr -d '\n' | pbcopy"
 
+# Remove leading and trailing quotations
+alias unquote="sed -e 's/^\"//' -e 's/\"$//'"
+
 # IP addresses
 # My public ip
-alias ip4="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
-alias ip6="dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
+alias ip4="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | unquote"
+alias ip6="dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com | unquote"
 
 # LS Aliases
 alias ll='ls -alF'
