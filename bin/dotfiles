@@ -57,12 +57,13 @@ declare -A target
 
 # The default target is "~/.<basename>"
 declare default_target=(
-    "shell/bashrc"
-    "shell/bash_profile"
-    "shell/curlrc"
-    "shell/inputrc"
+    "bash/bashrc"
+    "bash/curlrc"
+    "bash/inputrc"
     "git/gitignore"
 )
+
+target["bash/profile"]="~/.bash_profile"
 
 for index in "${!default_target[@]}"; do
     # Map each file to the default target
