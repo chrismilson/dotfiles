@@ -3,6 +3,7 @@
 $files = @(
     "$HOME/.dotfiles/powershell/prompt.psm1"
     "$HOME/.dotfiles/powershell/options.psm1"
+    "$HOME/.profile.local.ps1"
 )
 
 $globs = @(
