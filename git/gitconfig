@@ -42,7 +42,7 @@
 	who = shortlog --numbered --summary --email --no-merges
 
 	# Show the user email for the current repository
-	whoami = !bash -c 'echo "$(git config user.name) at $(git config user.email)"'
+	whoami = !bash -c 'echo "$(git config user.name) - $(git config user.email)"'
 
 [branch]
 
