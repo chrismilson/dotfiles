@@ -4,16 +4,16 @@
 $E = [char]27
 $bold = "$E[1m"
 $reset = "$E[0m"
-$black = "$E[m"
-$blue = "$E[m"
-$cyan = "$E[m"
-$green = "$E[m"
-$orange = "$E[m"
-$purple = "$E[m"
-$red = "$E[m"
-$violet = "$E[m"
-$white = "$E[m"
-$yellow = "$E[m"
+$black = "$E[1;30m"
+$blue = "$E[38;2;38;139;210m"
+$cyan = "$E[38;2;42;161;152m"
+$green = "$E[38;2;133;153;0m"
+$orange = "$E[38;2;203;75;22m"
+$purple = "$E[38;2;211;54;130m"
+$red = "$E[38;2;211;1;2m"
+$violet = "$E[38;2;108;113;196m"
+$white = "$E[1;37m"
+$yellow = "$E[38;2;181;137;0m"
 
 # Define the new prompt
 function prompt {
