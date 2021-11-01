@@ -1,4 +1,5 @@
 # Colour the shell with solarized dark colours
+. "$HOME/.dotfiles/powershell/colours/Set-SolarizedDark.ps1"
 
 # Define ANSI Colours
 $E = [char]27
