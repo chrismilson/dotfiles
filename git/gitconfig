@@ -96,6 +96,10 @@
 	# Autmoatically correct and execute mistyped commands
 	autocorrect = 1
 
+[init]
+
+	defaultBranch = main
+
 [pretty]
 
 	nice = "%C(yellow)%h%C(reset) %C(white)%s%C(cyan)%d%C(reset) -- %an; %ar"
