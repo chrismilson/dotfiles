@@ -16,6 +16,36 @@ $violet = "$E[38;2;108;113;196m"
 $white = "$E[1;37m"
 $yellow = "$E[38;2;181;137;0m"
 
+function prompt_git {
+    param($a, $b)
+
+    $status = Get-GitStatus
+
+    if (-Not $status) {
+        return ""
+    }
+
+    $branch = $status.Branch
+
+    $s = ""
+
+    if ($status.HasWorking) {
+        $s += "+"
+    }
+    if ($status.HasUntracked) {
+        $s += "?"
+    }
+    if ($status.StashCount -gt 0) {
+        $s += "$"
+    }
+
+    if ($s) {
+        $s = "[${s}]"
+    }
+
+    return "${a}${branch}${b}${s}"
+}
+
 # Define the new prompt
 function prompt {
     $PS1 = "`n${bold} "
@@ -32,6 +62,7 @@ function prompt {
     $PS1 += "${yellow}$(Hostname)"
     $PS1 += "${white} in "
     $PS1 += "${green}${location}"
+    $PS1 += prompt_git "${white} on ${violet}" " ${blue}"
     $PS1 += "`n${white} "
 
     if ($NestedPromptLevel -ge 1) {
