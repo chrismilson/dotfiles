@@ -6,10 +6,6 @@ $Host.PrivateData.VerboseForegroundColor = 'Blue'
 $Host.PrivateData.ProgressForegroundColor = 'Gray'
 
 # Host Background
-$Host.PrivateData.ErrorBackgroundColor = 'DarkGray'
-$Host.PrivateData.WarningBackgroundColor = 'DarkGray'
-$Host.PrivateData.DebugBackgroundColor = 'DarkGray'
-$Host.PrivateData.VerboseBackgroundColor = 'DarkGray'
 $Host.PrivateData.ProgressBackgroundColor = 'Cyan'
 
 # Check for PSReadline
