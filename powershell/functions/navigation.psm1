@@ -50,3 +50,7 @@ function loadd {
     Pop-Location -StackName "saved"
     saved # save the location again for ease of use.
 }
+
+function p {
+    Push-Location -Path "${HOME}/projects"
+}
