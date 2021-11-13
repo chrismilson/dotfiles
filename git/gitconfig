@@ -1,5 +1,10 @@
 [alias]
 
+	# Shortened versions of common commands
+	co = checkout
+	ll = log --pretty=nice
+	c = commit
+
 	# `git remote prune origin`: remove remote-tracking branches that were deleted from the remote repo
 	# `git gc`: cleanup unneccesary files and optimise the local repository
 	# `git clean -df`: remove untracked files and directories from the working tree
