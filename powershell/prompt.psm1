@@ -58,12 +58,12 @@ function prompt {
     $location = $location -replace "^$([regex]::Escape($HOME))", "~"
     
     $PS1 += "${orange}${env:UserName}"
-    $PS1 += "${white} at "
+    $PS1 += "${reset} at "
     $PS1 += "${yellow}$(Hostname)"
-    $PS1 += "${white} in "
+    $PS1 += "${reset} in "
     $PS1 += "${green}${location}"
-    $PS1 += prompt_git "${white} on ${violet}" " ${blue}"
-    $PS1 += "`n${white} "
+    $PS1 += prompt_git "${reset} on ${violet}" " ${blue}"
+    $PS1 += "`n${reset} "
 
     if ($NestedPromptLevel -ge 1) {
         $PS1 += ">>>"
