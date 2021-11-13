@@ -1,6 +1,7 @@
 # The base script that will load all of the other scripts.
 
 $files = @(
+    "$HOME/.dotfiles/powershell/aliases.psm1"
     "$HOME/.dotfiles/powershell/prompt.psm1"
     "$HOME/.dotfiles/powershell/options.psm1"
     "$HOME/.profile.local.ps1"
