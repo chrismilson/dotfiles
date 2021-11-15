@@ -1,5 +1,14 @@
-# Colour the shell with solarized dark colours
-. "$HOME/.dotfiles/powershell/colours/Set-SolarizedDark.ps1"
+# Colour the shell with solarized colours
+$title = Get-Process -Id $PID | Select-Object -ExpandProperty MainWindowTitle
+
+if ($title -match "Light") {
+    Write-Host "Loading Light Colour Scheme"
+    . "${HOME}/.dotfiles/powershell/colours/Set-SolarizedLight.ps1"
+}
+if ($title -match "Dark") {
+    Write-Host "Loading Dark Colour Scheme"
+    . "${HOME}/.dotfiles/powershell/colours/Set-SolarizedDark.ps1"
+}
 
 # Define ANSI Colours
 $E = [char]27
