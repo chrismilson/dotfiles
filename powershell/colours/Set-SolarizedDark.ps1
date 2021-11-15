@@ -14,8 +14,8 @@ if (Get-Module -ListAvailable -Name "PSReadline") {
 
     # Foreground
     $options.CommandColor = 'Yellow'
-    $options.CommentColor = 'DarkBlue'
-    $options.DefaultTokenColor = 'DarkBlue'
+    $options.CommentColor = 'DarkYellow'
+    $options.DefaultTokenColor = 'DarkYellow'
     $options.EmphasisColor = 'Cyan'
     $options.ErrorColor = 'Red'
     $options.KeywordColor = 'Green'
