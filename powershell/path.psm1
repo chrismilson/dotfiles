@@ -13,13 +13,13 @@ $append = @(
 $path = $env:PATH
 
 # Prepend directories to path
-for $dir in $prepend {
+foreach ($dir in $prepend) {
     if (Test-Path -Path $dir) {
         $path = "${dir};${path}"
     }
 }
 
-for $dir in $append {
+foreach ($dir in $append) {
     if (Test-Path -Path $dir) {
         $path = "${path};${dir}"
     }
