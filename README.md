@@ -4,19 +4,30 @@ Various configuration files and scripts. It makes me feel more at home.
 
 ## Install
 
-To install these files remotely, do
+To install the dotfiles:
 
-```bash
-bash -c "$(curl -fsSL raw.github.com/chrismilson/dotfiles/master/bin/dotfiles)"
-```
+1. Fork the repository to your own github account.
+1. Clone your shiny new fork to your own computer.
 
-## Update
+    ```bash
+    $ git clone git@github.com:<your github username>/dotfiles.git
+    ```
+1. Navigate to the bin folder
+    
+    ```bash
+    $ cd <path to repository>/bin
+    ```
+1. Run the install script
 
-To update the files, just run the dotfiles update command
+    ```bash
+    $ ./dotfiles
+    ```
 
-```bash
-dotfiles update
-```
+### Powershell
+
+The install for the powershell dotfiles is much the same, but instead of running `bin/dotfiles`, run `bin/dotfiles.ps1`.
+
+Note that it is highly recommended to change the powershell colour scheme to match the solarized colours that the prompt is expecting. For details about how to do this, see [the powershell solarized repository](https://github.com/neilpa/cmd-colors-solarized).
 
 ## Thanks to...
 
