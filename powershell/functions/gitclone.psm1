@@ -9,5 +9,3 @@ function gitclone {
     git clone $1
     Set-Location $2
 }
-
-Set-Alias -Name gc -Value gitclone
