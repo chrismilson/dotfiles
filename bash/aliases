@@ -52,3 +52,6 @@ alias python="python3"
 # Case change aliases
 alias toupper="tr [:lower:] [:upper:]"
 alias tolower="tr [:upper:] [:lower:]"
+
+# Git alias
+alias g="git"
