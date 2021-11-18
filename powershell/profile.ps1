@@ -4,6 +4,7 @@ $files = @(
     "$HOME/.dotfiles/powershell/aliases.psm1"
     "$HOME/.dotfiles/powershell/prompt.psm1"
     "$HOME/.dotfiles/powershell/options.psm1"
+    "$HOME/.dotfiles/powershell/path.psm1"
     "$HOME/.profile.local.ps1"
 )
 
