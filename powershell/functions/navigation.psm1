@@ -20,10 +20,18 @@ function ..... {
     Set-Location ../../../..
 }
 
+function ...... {
+    Set-Location ../../../../..
+}
+
+function ....... {
+    Set-Location ../../../../../..
+}
+
 function swapd {
     # We want to swap between the last recently viewed directory and the current
-    # directory. 
-    
+    # directory.
+
     # If we just used `Set-Location -`, We would be able to go back, but not
     # forward.
 
@@ -53,4 +61,8 @@ function loadd {
 
 function p {
     Push-Location -Path "${HOME}/projects"
+}
+
+function t {
+    Push-Location -Path "c:/temp"
 }
