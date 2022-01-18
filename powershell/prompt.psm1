@@ -57,7 +57,7 @@ function prompt_git {
 
 # Define the new prompt
 function prompt {
-    $PS1 = "`n${bold} "
+    $PS1 = "`n${bold}"
 
     if (Test-Path variable:/PSDebugContext) {
         $PS1 += "${red}[DEBUG] "
@@ -72,7 +72,7 @@ function prompt {
     $PS1 += "${reset} in "
     $PS1 += "${green}${location}"
     $PS1 += prompt_git "${reset} on ${violet}" " ${blue}"
-    $PS1 += "`n${reset} "
+    $PS1 += "`n${reset}"
 
     if ($NestedPromptLevel -ge 1) {
         $PS1 += ">>>"
