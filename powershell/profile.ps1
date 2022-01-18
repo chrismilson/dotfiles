@@ -5,7 +5,7 @@ $files = @(
     "$HOME/.dotfiles/powershell/prompt.psm1"
     "$HOME/.dotfiles/powershell/options.psm1"
     "$HOME/.dotfiles/powershell/path.psm1"
-    "$HOME/.dotfiles/local/profile.ps1"
+    "$HOME/.dotfiles/local/powershell/profile.ps1"
 )
 
 $globs = @(
