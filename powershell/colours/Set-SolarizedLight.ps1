@@ -13,8 +13,8 @@ if (Get-Module -ListAvailable -Name "PSReadline") {
     $options = Get-PSReadlineOption
 
     $options.CommandColor = 'Yellow'
-    $options.ContinuationPromptColor = 'DarkBlue'
-    $options.DefaultTokenColor = 'DarkBlue'
+    $options.ContinuationPromptColor = 'DarkYellow'
+    $options.DefaultTokenColor = 'DarkYellow'
     $options.EmphasisColor = 'Cyan'
     $options.ErrorColor = 'Red'
     $options.KeywordColor = 'Green'
