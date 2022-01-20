@@ -28,6 +28,10 @@ function Show-Notification {
     $Notifier.Show($Toast)
 }
 
-function alert {
+function alert() {
+    param (
+        $timeToWait = 0
+    )
+    Start-Sleep $timeToWait
     Show-Notification "Finished!" "The script completed."
 }
