@@ -1,32 +1,11 @@
 # Some helpful functions for fast navigation
 
-function ~ {
-    Set-Location $HOME
-}
-
-function .. {
-    Set-Location ..
-}
-
-function ... {
-    Set-Location ../..
-}
-
-function .... {
-    Set-Location ../../..
-}
-
-function ..... {
-    Set-Location ../../../..
-}
-
-function ...... {
-    Set-Location ../../../../..
-}
-
-function ....... {
-    Set-Location ../../../../../..
-}
+${function:~} = { Set-Location ~ }
+function .. { Set-Location ..  }
+${function:...} = { Set-Location ..\.. }
+${function:....} = { Set-Location ..\..\.. }
+${function:.....} = { Set-Location ..\..\..\.. }
+${function:......} = { Set-Location ..\..\..\..\.. }
 
 function swapd {
     # We want to swap between the last recently viewed directory and the current
