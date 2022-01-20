@@ -24,3 +24,6 @@ if (Get-Command ls.exe -ErrorAction SilentlyContinue | Test-Path) {
 
 # Determin size of a file or total size of a directory
 Set-Alias -Name fs -Value Get-DiskUsage
+
+# Similar to ? and %
+Set-Alias -Name : -Value Select-Object
