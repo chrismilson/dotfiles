@@ -17,13 +17,13 @@ foreach ($file in $files) {
         continue
     }
 
-    Import-Module $file
+    Import-Module -DisableNameChecking $file
 }
 
 foreach ($glob in $globs) {
     $files = (Get-ChildItem $glob | Select-Object -Expand FullName)
 
     foreach ($file in $files) {
-        Import-Module $file
+        Import-Module -DisableNameChecking $file
     }
 }
