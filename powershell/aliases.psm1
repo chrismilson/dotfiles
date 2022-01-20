@@ -27,3 +27,7 @@ Set-Alias -Name fs -Value Get-DiskUsage
 
 # Similar to ? and %
 Set-Alias -Name : -Value Select-Object
+
+# JSON conversion aliases
+Set-Alias -Name jtoo -Value ConvertFrom-Json
+Set-Alias -Name otoj -Value ConvertTo-Json
