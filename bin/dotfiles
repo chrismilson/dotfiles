@@ -55,8 +55,8 @@ for index in "${!default_target[@]}"; do
 done
 
 install() {
-    # Copy `.gitconfig` 
-    # Any global git commands (in `~/.bash_profile.local` for example) will be 
+    # Copy `.gitconfig`
+    # Any global git commands (in `~/.bash_profile.local` for example) will be
     # written to `~/.gitonfig`. This prevents them from being committed to the
     # repository.
     rsync -avz --quiet ${DOTFILES_DIRECTORY}/git/gitconfig ${HOME}/.gitconfig
@@ -96,7 +96,7 @@ uninstall() {
     e_success "Successfully removed dotfiles"
 }
 
-if [[ $# == 0 || "$1" == "install" ]]; then
+if [[ $# == 0 ]]; then
     # Ask before potentially overwriting files
     seek_confirmation "Warning: This step may overwrite your existing dotfiles."
 
@@ -105,32 +105,22 @@ if [[ $# == 0 || "$1" == "install" ]]; then
         exit 1
     fi
 
+	install
+	exit
+fi
+
+if [[ "$1" == "install" ]]; then
+	# install was specified, so no need to ask permission
     install
     exit
 fi
 
 if [[ "$1" == "update" ]]; then
-    # Ask before potentially overwriting files
-    seek_confirmation "Warning: This step may overwrite your existing dotfiles."
-
-    if ! is_confirmed; then
-        printf "Aborting...\n"
-        exit 1
-    fi
-
     update
     exit
 fi
 
 if [[ "$1" == "remove" ]]; then
-    # Ask before removing files
-    seek_confirmation "Warning: This step will remove your existing dotfiles."
-
-    if !is_confirmed; then
-        printf "Aborting...\n"
-        exit 1
-    fi
-
     uninstall
     exit
 fi
