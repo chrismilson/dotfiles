@@ -54,5 +54,6 @@ alias python="python3"
 alias toupper="tr [:lower:] [:upper:]"
 alias tolower="tr [:upper:] [:lower:]"
 
-# Git alias
+# Commonly used program aliases
 alias g="git"
+alias k="kubectl"
