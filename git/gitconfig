@@ -14,6 +14,7 @@
 	cleanup = !git clean -df && git stash clear
 
 	upstream-name = !git remote | grep -E '^(?=upstream|origin)$' | tail -1
+	head-branch = !git remote show $(git upstream-name) | awk '/HEAD branch/ { print $NF }'
 
 	# Add untracked files, remove deleted files, and show status
 	adda = !git add -A && git status
