@@ -5,6 +5,7 @@
 	ll = log --pretty=nice
 	c = commit
 	b = branch
+	mm = merge-upstream # mm for merge-main or merge-master
 
 	# `git remote prune origin`: remove remote-tracking branches that were deleted from the remote repo
 	# `git gc`: cleanup unneccesary files and optimise the local repository
@@ -15,6 +16,7 @@
 
 	upstream-name = !git remote | grep -E '^(upstream|origin)$' | tail -1
 	head-branch = !git remote show $(git upstream-name) | awk '/HEAD branch/ { print $NF }'
+	merge-upstream = !git fetch | git merge $(git upstream-name)/$(git head-branch)
 
 	# Add untracked files, remove deleted files, and show status
 	adda = !git add -A && git status
