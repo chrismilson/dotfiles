@@ -12,7 +12,7 @@ function _complete_available_versions {
 
 function Set-TerraformVersion {
     param(
-        [Parameter(Mandatory=true)]
+        [Parameter(Mandatory=$true)]
         [ArgumentCompleter({ _complete_available_versions @args })]
         $Version
     )
