@@ -6,7 +6,7 @@
 function _complete_available_versions {
     param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameters)
 
-    $versions = Get-ChildItem -directory $env:TERRAFORM_BIN_DIR/versions | Select-Object { $_.Name }
+    $versions = Get-ChildItem -directory $env:TERRAFORM_BIN_DIR/versions | ForEach-Object { $_.Name }
     $versions | Where-Object { $_ -match $wordToComplete }
 }
 
