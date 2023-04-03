@@ -71,7 +71,7 @@ function prompt {
     $PS1 += "${yellow}$(Hostname)"
     $PS1 += "${reset} in "
     $PS1 += "${green}${location}"
-    $PS1 += prompt_git "${reset} on ${violet}" " ${blue}"
+    # $PS1 += prompt_git "${reset} on ${violet}" " ${blue}"
     $PS1 += "`n${reset}"
 
     if ($NestedPromptLevel -ge 1) {
