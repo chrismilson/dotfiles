@@ -6,6 +6,7 @@
 	c = commit
 	b = branch
 	mm = merge-upstream # mm for merge-main or merge-master
+	s = status
 
 	# `git remote prune origin`: remove remote-tracking branches that were deleted from the remote repo
 	# `git gc`: cleanup unneccesary files and optimise the local repository
